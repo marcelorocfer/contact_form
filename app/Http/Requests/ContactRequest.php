@@ -28,7 +28,7 @@ class ContactRequest extends FormRequest
             'email' => 'required | email',
             'telefone' => 'required | min: 14 | max:15',
             'mensagem' => 'required | max:255',
-            'arquivo' => 'required'
+            'arquivo' => 'required | mimes:pdf,doc,docx,odt,txt |max:500'
         ];
     }
 
@@ -43,7 +43,9 @@ class ContactRequest extends FormRequest
             'arquivo.required' => 'Você deve escolher um arquivo.',
             'telefone.min' => 'O campo "Telefone" deve ter pelo menos 14 caracteres.',
             'telefone.max' => 'O campo "Telefone" deve ter no máximo 15 caracteres.',
-            'mensagem.max' => 'O campo "Sua Mensagem" deve ter no máximo 255 caracteres.'
+            'mensagem.max' => 'O campo "Sua Mensagem" deve ter no máximo 255 caracteres.',
+            'arquivo.max' => 'O arquivo não pode ser maior que 500kb.',
+            'arquivo.mimes' => 'O arquivo deve ser dos tipos "pdf, doc, docx, odt ou txt".'
 
         ];
 
