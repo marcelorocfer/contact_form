@@ -96,7 +96,7 @@
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o Seu Nome">
                 </div>
                 <div class="form-group text-left">
-                    <label for="email">Endereço de e-mail</label>
+                    <label for="email">E-mail</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="nome@dominio.com">
                 </div>
                 <div class="form-group text-left">
@@ -119,42 +119,10 @@
         </div>
     </section>
 
-    {{--<div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
-          @foreach($posts as $post)
-              <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                  <img class="card-img-top figure-img img-fluid rounded" src="/storage/{{ $post->arquivo }}">
-                  <div class="card-body">
-                    <p class="card-text">{{ $post->email }}</p>
-                    <p class="card-text">{{ $post->mensagem }}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <!--button type="button" class="btn btn-sm btn-outline-secondary">Download</button-->
-                        <a type="button" class="btn btn-sm btn-outline-secondary" href="/download/{{$post->id}}">Download</a>
-                        <form action="/{{ $post->id }}" method="POST">
-                          @csrf
-                          <input type="hidden" name="_method" value="delete">
-                          <button type="submit" class="btn btn-sm btn-outline-danger">Apagar</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          @endforeach
-        </div>
-      </div>
-    </div>--}}
-
 </main>
 
 <footer class="text-muted">
     <div class="container">
-        {{--<p class="float-right">
-            <a href="#">Voltar para cima</a>
-        </p>--}}
         <p style="text-align: center">www.suaempresa.com.br © - {{ date('Y') }}</p>
     </div>
 </footer>
