@@ -4,7 +4,7 @@
 //     return view('index');
 // });
 
-Route::get('/', 'ContactController@index');
+Route::get('/', 'ContactController@index')->name('contact');
 Route::post('/', 'ContactController@store');
 Route::delete('/{id}', 'ContactController@destroy');
 Route::get('/download/{id}', 'ContactController@download');

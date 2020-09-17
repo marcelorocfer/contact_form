@@ -69,7 +69,7 @@
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
             <a href="#" class="navbar-brand d-flex align-items-center">
-                <strong>Contato</strong>
+                <strong>Formulário de Contato</strong>
             </a>
         </div>
     </div>
@@ -82,17 +82,26 @@
             <h1 class="jumbotron-heading">Envie a sua mensagem</h1>
             <form method="POST" action="/" enctype="multipart/form-data">
                 @csrf
+
+                @if($errors)
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            {{ $error }}
+                        </div>
+                    @endforeach
+                @endif
+
                 <div class="form-group text-left">
                     <label for="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu Nome">
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o Seu Nome">
                 </div>
                 <div class="form-group text-left">
                     <label for="email">Endereço de e-mail</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="nome@dominio.com">
                 </div>
                 <div class="form-group text-left">
-                    <label for="fone">Telefone</label>
-                    <input type="text" class="form-control" id="fone" name="fone" placeholder="(00) 0000-0000">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone" minlength="14" maxlength="15" placeholder="(99) 99999-9999">
                 </div>
                 <div class="form-group text-left">
                     <label for="mensagem">Sua mensagem</label>
@@ -143,10 +152,10 @@
 
 <footer class="text-muted">
     <div class="container">
-        <p class="float-right">
+        {{--<p class="float-right">
             <a href="#">Voltar para cima</a>
-        </p>
-        <p>© www.suaempresa.com.br - {{ date('Y') }}</p>
+        </p>--}}
+        <p style="text-align: center">www.suaempresa.com.br © - {{ date('Y') }}</p>
     </div>
 </footer>
 
