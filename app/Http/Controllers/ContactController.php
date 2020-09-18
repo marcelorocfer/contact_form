@@ -7,6 +7,7 @@ use App\Contact;
 
 
 use App\Mail\ContactMail;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,7 +32,10 @@ class ContactController extends Controller
         $post->mensagem = $request->input('mensagem');
         $post->ip = $request->ip();
         $post->arquivo = $path;
-        $post->save();
+
+        dd($request->all());
+
+        /*$post->save();
 
         $data = [
             'reply_name' => $post->nome,
@@ -44,7 +48,7 @@ class ContactController extends Controller
 
         Mail::send(new ContactMail($data));
 
-        return redirect('/')->with('message', 'Mensagem enviada com sucesso!');
+        return redirect('/')->with('message', 'Mensagem enviada com sucesso!');*/
     }
 
 }
