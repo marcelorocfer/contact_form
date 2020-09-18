@@ -80,7 +80,7 @@
     <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading">Envie a sua mensagem</h1>
-            <form method="POST" action="/" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
                 @csrf
 
                 @if($errors)
@@ -89,6 +89,12 @@
                             {{ $error }}
                         </div>
                     @endforeach
+                @endif
+
+                @if(session('message'))
+                    <div class="alert alert-success">
+                        {{session('message')}}
+                    </div>
                 @endif
 
                 <div class="form-group text-left">
@@ -101,7 +107,8 @@
                 </div>
                 <div class="form-group text-left">
                     <label for="telefone">Telefone</label>
-                    <input type="text" class="form-control" id="telefone" name="telefone" minlength="14" maxlength="15" placeholder="(99) 99999-9999">
+                    <input type="text" class="form-control" id="telefone" name="telefone" minlength="14" maxlength="15"
+                           placeholder="(99) 99999-9999">
                 </div>
                 <div class="form-group text-left">
                     <label for="mensagem">Sua mensagem</label>

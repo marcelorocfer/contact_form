@@ -6,6 +6,8 @@ use App\Http\Requests\ContactRequest;
 use App\Contact;
 
 
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -20,7 +22,7 @@ class ContactController extends Controller
 
     public function store(ContactRequest $request)
     {
-        $path = $request->file('arquivo')->store('imagens', 'public');
+        $path = $request->file('arquivo')->store('arquivos', 'public');
 
         $post = new Contact();
         $post->nome = $request->input('nome');
@@ -31,7 +33,18 @@ class ContactController extends Controller
         $post->arquivo = $path;
         $post->save();
 
-        return redirect('/');
+        $data = [
+            'reply_name' => $post->nome,
+            'reply_email' => $post->email,
+            'subject' => 'Nova Mensagem',
+            'message' => $post->mensagem,
+            'telefone' => $post->telefone,
+            'arquivo' => $post->arquivo
+        ];
+
+        Mail::send(new ContactMail($data));
+
+        return redirect('/')->with('message', 'Mensagem enviada com sucesso!');
     }
 
 }
