@@ -5,7 +5,7 @@ Nome: <b>{{ $reply_name }}</b>
 
 Email: {{ $reply_email }}
 
-Telefone: {{ $telefone }}
+Telefone: <b>{{ $telefone }}</b>
 
 Mensagem:
 @component('mail::panel')
