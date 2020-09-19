@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Validator;
 
 class ContactRequest extends FormRequest
 {
@@ -28,7 +29,7 @@ class ContactRequest extends FormRequest
             'email' => 'required | email',
             'telefone' => 'required | min: 14 | max:15',
             'mensagem' => 'required | max:255',
-            'arquivo' => 'required | mimes:pdf,doc,docx,odt,text/plain,txt | max:500',
+            'arquivo' => 'required | mimes:pdf,doc,docx,odt,txt | max:500'
         ];
     }
 
@@ -45,7 +46,7 @@ class ContactRequest extends FormRequest
             'telefone.max' => 'O campo "Telefone" deve ter no máximo 15 caracteres.',
             'mensagem.max' => 'O campo "Sua Mensagem" deve ter no máximo 255 caracteres.',
             'arquivo.max' => 'O arquivo não pode ser maior que 500kb.',
-            'arquivo.mimes' => 'O arquivo deve ser dos tipos "pdf, doc, docx, odt ou txt".'
+            'arquivo.mimetypes' => 'O arquivo deve ser dos tipos "pdf, doc, docx, odt ou txt".'
 
         ];
 

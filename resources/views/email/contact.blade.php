@@ -7,8 +7,6 @@ Email: {{ $reply_email }}
 
 Telefone: {{ $telefone }}
 
-{{--Arquivo: {{ $arquivo }}--}}
-
 Mensagem:
 @component('mail::panel')
     {{ $message }}
