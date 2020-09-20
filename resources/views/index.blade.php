@@ -119,8 +119,8 @@
                     <label class="custom-file-label" for="arquivo">Escolha um arquivo</label>
                 </div>
                 <p>
-                    <button type="submit" class="btn btn-primary my-2">Enviar</button>
                     <button type="reset" class="btn btn-secondary my-2">Cancelar</button>
+                    <button type="submit" class="btn btn-primary my-2">Enviar</button>
                 </p>
             </form>
         </div>
@@ -130,7 +130,7 @@
 
 <footer class="text-muted">
     <div class="container">
-        <p style="text-align: center">www.suaempresa.com.br © - {{ date('Y') }}</p>
+        <p style="text-align: center">Marcelo Rocha Ferreira - {{ date('Y') }}</p>
     </div>
 </footer>
 

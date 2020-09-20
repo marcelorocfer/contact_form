@@ -27,9 +27,9 @@ class ContactRequest extends FormRequest
         return [
             'nome' => 'required',
             'email' => 'required | email',
-            'telefone' => 'required | min: 14 | max:15',
+            'telefone' => 'required | min:14 | max:15',
             'mensagem' => 'required | max:255',
-            'arquivo' => 'required | mimes:pdf,doc,docx,odt,txt | max:500'
+            'arquivo' => 'required | mimes:pdf,doc,docx,odt,txt,text/plain,application/octet-stream,application/vnd.openxmlformats-officedocument.wordprocessingml.document | max:500'
         ];
     }
 
@@ -42,12 +42,12 @@ class ContactRequest extends FormRequest
             'telefone.required' => 'O campo "Telefone" é obrigatório.',
             'mensagem.required' => 'O campo "Sua Mensagem" é obrigatório.',
             'arquivo.required' => 'Você deve escolher um arquivo.',
-            'telefone.min' => 'O campo "Telefone" deve ter pelo menos 14 caracteres.',
-            'telefone.max' => 'O campo "Telefone" deve ter no máximo 15 caracteres.',
+            'telefone.min' => 'O campo "Telefone" deve ter pelo menos 10 caracteres.',
+            'telefone.max' => 'O campo "Telefone" deve ter no máximo 11 caracteres.',
             'mensagem.max' => 'O campo "Sua Mensagem" deve ter no máximo 255 caracteres.',
             'arquivo.max' => 'O arquivo não pode ser maior que 500kb.',
-            'arquivo.mimes' => 'O arquivo deve ser dos tipos "pdf, doc, docx, odt ou txt".'
-
+            'arquivo.mimes' => 'O arquivo deve ser dos tipos "pdf, doc, docx, odt ou txt".',
+            'arquivo.mimetypes' => 'O arquivo deve ser dos tipos "pdf, doc, docx, odt ou txt".'
         ];
 
     }

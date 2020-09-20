@@ -1,15 +1,15 @@
 <?php
 
-namespace Tests;
+namespace Tests\Unit;
 
 use App\Contact;
+use App\Mail\ContactMail;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Support\Facades\Mail;
+use Tests\TestCase;
 
-abstract class TestCase extends BaseTestCase
+class ContactTest extends TestCase
 {
-    use CreatesApplication;
-
     use DatabaseTransactions;
 
     public function test_create_contact()
@@ -25,12 +25,30 @@ abstract class TestCase extends BaseTestCase
         $post->save();
 
         $this->assertDatabaseHas('contacts', [
-            'email' => 'teste@teste.com',
             'nome' => 'Nome Teste',
+            'email' => 'teste@teste.com',
             'telefone' => '(77) 7777-7777',
             'mensagem' => 'Mensagem Teste',
             'ip' => '192.168.10.10',
             'arquivo' => 'fcSmNVco6DL5ouL7OZQWPtccxBtsjdNhJ1DjcKN3.pdf'
         ]);
     }
+
+   /* public function test_mail()
+    {
+        Mail::fake();
+
+        $data = [
+            'reply_name' => 'Nome',
+            'reply_email' => 'mrftattoo@gmail.com',
+            'subject' => 'Nova Mensagem',
+            'message' => 'Mensagem'
+        ];
+
+        new ContactMail($data);
+
+        Mail::assertSent(ContactMail::class, function ($data) {
+            return $data->subject === 'Nova Mensagem';
+        });
+    }*/
 }
