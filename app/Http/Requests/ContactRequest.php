@@ -46,8 +46,7 @@ class ContactRequest extends FormRequest
             'telefone.max' => 'O campo "Telefone" deve ter no máximo 11 caracteres.',
             'mensagem.max' => 'O campo "Sua Mensagem" deve ter no máximo 255 caracteres.',
             'arquivo.max' => 'O arquivo não pode ser maior que 500kb.',
-            'arquivo.mimes' => 'O arquivo deve ser dos tipos "pdf, doc, docx, odt ou txt".',
-            'arquivo.mimetypes' => 'O arquivo deve ser dos tipos "pdf, doc, docx, odt ou txt".'
+            'arquivo.mimes' => 'O arquivo deve ser dos tipos "pdf, doc, docx, odt ou txt".'
         ];
 
     }
