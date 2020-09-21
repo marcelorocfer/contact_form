@@ -6,6 +6,7 @@
 - Copie arquivo ".env.example" e salve como ".env".
 - Execute o comando "php artisan key:generate".
 - Crie um banco de dados e configure as credenciais da sua base de dados para o arquivo ".env".
+- Execute o comando "php artisan migrate" para gerar as migrations.
 - Configure as credenciais do seu servidor de e-mails no arquivo ".env".
 - Execute o comando "php artisan serve" para iniciar um servidor de desenvolvimento local ou acesse pelo navegador através do endereço "http://localhost/nomedodiretorio/public/" ou "http://127.0.0.1/nomedodiretorio/public/".
 
