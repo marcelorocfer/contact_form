@@ -34,21 +34,44 @@ class ContactTest extends TestCase
         ]);
     }
 
-   /* public function test_mail()
+    public function test_mail()
     {
-        Mail::fake();
+        /*Mail::fake();
 
-        $data = [
-            'reply_name' => 'Nome',
-            'reply_email' => 'mrftattoo@gmail.com',
+        Mail::assertNothingSent();
+
+        Mail::assertSent(ContactMail::class, 0);*/
+
+//        Mail::assertSent(ContactMail::class);
+
+        /*$data = [
+            'nome' => 'Nome',
+            'email' => 'mrftattoo@gmail.com',
             'subject' => 'Nova Mensagem',
-            'message' => 'Mensagem'
+            'message' => 'Mensagem',
+            'telefone' => '(77) 7777-7777',
+            'arquivo' => 'teste.pdf'
         ];
 
-        new ContactMail($data);
+        Mail::assertSent(new ContactMail($data));*/
 
-        Mail::assertSent(ContactMail::class, function ($data) {
-            return $data->subject === 'Nova Mensagem';
-        });
-    }*/
+        /*Mail::assertSent(ContactMail::class, function ($mail) use ($data) {
+            $this->assertFalse($mail->hasTo($data->nome), 'Unexpected to');
+
+            return false;
+        });*/
+
+//        new ContactMail($data);
+
+        /*Mail::assertSent(function (ContactMail $mail) {
+            $mail->to(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+        });*/
+
+
+        /*$mail = Mail::to(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))->send(new ContactMail($data));
+        Mail::assertSent(ContactMail::class, function($mail) {
+            $build = $mail->build();
+        });*/
+
+    }
 }
