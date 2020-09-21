@@ -35,5 +35,5 @@ MAIL_FROM_NAME="${APP_NAME}"
 
 ## Observações.
 
-Esse projeto foi criado com ajuda do framework Laravel de desenvolvimento PHP. Mais informações podem ser obtidas através da sua [documentação](https://laravel.com/docs) através do link https://laravel.com/docs.
+Esse projeto foi criado com ajuda do framework de desenvolvimento PHP Laravel. Mais informações podem ser obtidas através da sua [documentação](https://laravel.com/docs) através do link https://laravel.com/docs.
 
