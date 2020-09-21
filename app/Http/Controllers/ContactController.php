@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactRequest;
 use App\Contact;
 
-
 use App\Mail\ContactMail;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 
 
 class ContactController extends Controller
@@ -17,38 +14,43 @@ class ContactController extends Controller
 
     public function index()
     {
-        $posts = Contact::all();
-        return view('index', compact($posts));
+        return view('index');
     }
 
     public function store(ContactRequest $request)
     {
         $path = $request->file('arquivo')->store('arquivos', 'public');
 
-        $post = new Contact();
-        $post->nome = $request->input('nome');
-        $post->email = $request->input('email');
-        $post->telefone = $request->input('telefone');
-        $post->mensagem = $request->input('mensagem');
-        $post->ip = $request->ip();
-        $post->arquivo = $path;
+        $contact = new Contact();
+        $contact->nome = $request->input('nome');
+        $contact->email = $request->input('email');
+        $contact->telefone = $request->input('telefone');
+        $contact->mensagem = $request->input('mensagem');
+        $contact->ip = $request->ip();
+        $contact->arquivo = $path;
 
-        dd($request->all());
+        $contact->save();
 
-        /*$post->save();
+        $c = Contact::orderBy('id', 'DESC')->first();
+
+        $date = $c->created_at;
+
+        $created_at = date('d/m/Y H:i:s', strtotime($date));
 
         $data = [
-            'reply_name' => $post->nome,
-            'reply_email' => $post->email,
+            'reply_name' => $contact->nome,
+            'reply_email' => $contact->email,
             'subject' => 'Nova Mensagem',
-            'message' => $post->mensagem,
-            'telefone' => $post->telefone,
-            'arquivo' => $post->arquivo
+            'message' => $contact->mensagem,
+            'telefone' => $contact->telefone,
+            'arquivo' => $contact->arquivo,
+            'seu_ip' => $contact->ip,
+            'criado_em' => $created_at,
         ];
 
         Mail::send(new ContactMail($data));
 
-        return redirect('/')->with('message', 'Mensagem enviada com sucesso!');*/
+        return redirect('/')->with('message', 'Mensagem enviada com sucesso!');
     }
 
 }

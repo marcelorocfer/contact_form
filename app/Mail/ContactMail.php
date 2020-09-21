@@ -5,7 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class ContactMail extends Mailable
 {
@@ -40,6 +39,8 @@ class ContactMail extends Mailable
                 'subject' => $this->data['subject'],
                 'message' => $this->data['message'],
                 'telefone' => $this->data['telefone'],
+                'seu_ip' => $this->data['seu_ip'],
+                'criado_em' => $this->data['criado_em']
             ])->attach( storage_path('app/public/' . $this->data['arquivo']) );
     }
 }

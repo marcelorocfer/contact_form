@@ -1,17 +1,16 @@
 @component('mail::message')
-# Olá, essa é uma mensagem de teste!
 
-Nome: <b>{{ $reply_name }}</b>
+## Nome: {{ $reply_name }}
 
-Email: {{ $reply_email }}
+## Email: {{ $reply_email }}
 
-Telefone: {{ $telefone }}
+## Telefone: {{ $telefone }}
 
-{{--Arquivo: {{ $arquivo }}--}}
-
-Mensagem:
+## Mensagem:
 @component('mail::panel')
-    {{ $message }}
+#    {{ $message }}
 @endcomponent
+
+##### Enviado em: {{ $criado_em }} pelo IP: {{ $seu_ip }}
 
 @endcomponent
